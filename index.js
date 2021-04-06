@@ -16,7 +16,9 @@ app.use(cors())
 const port = 5000
 
 
-
+app.get('/',(req,res)=>{
+  res.send("db server working")
+})
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
@@ -34,6 +36,8 @@ client.connect(err => {
       })
         
   })
+
+
 
 app.get('/products',(req,res) =>{
   products.find({})
